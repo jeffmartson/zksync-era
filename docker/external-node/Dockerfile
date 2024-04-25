@@ -1,6 +1,6 @@
 # Will work locally only after prior contracts build
 
-FROM debian:bookworm-slim as builder
+FROM debian:12.5-slim as builder
 
 RUN apt-get update && apt-get install -y curl clang openssl libssl-dev gcc g++ \
     pkg-config build-essential libclang-dev && \
@@ -20,7 +20,7 @@ COPY . .
 RUN cargo build --release
 RUN cargo install sqlx-cli --version 0.5.13
 
-FROM debian:bookworm-slim
+FROM debian:12.5-slim
 
 RUN apt-get update && apt-get install -y curl libpq5 ca-certificates && rm -rf /var/lib/apt/lists/*
 
