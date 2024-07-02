@@ -1,6 +1,6 @@
 # Will work locally only after prior contracts build
 # syntax=docker/dockerfile:experimental
-FROM debian:bookworm-slim as builder
+FROM debian:12.6-slim as builder
 
 WORKDIR /usr/src/zksync
 COPY . .
@@ -19,7 +19,7 @@ RUN curl https://sh.rustup.rs -sSf | bash -s -- -y && \
 
 RUN cargo build --release --features=rocksdb/io-uring
 
-FROM debian:bookworm-slim
+FROM debian:12.6-slim
 
 RUN apt-get update && apt-get install -y curl libpq5 liburing-dev ca-certificates && \
     rm -rf /var/lib/apt/lists/*
