@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim as builder
+FROM debian:12.6-slim as builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -19,7 +19,7 @@ COPY . .
 
 RUN cargo build --release --bin zksync_prover_fri
 
-FROM debian:bookworm-slim
+FROM debian:12.6-slim
 RUN apt-get update && apt-get install -y curl libpq5 ca-certificates && rm -rf /var/lib/apt/lists/*
 
 # copy VK required for protocol version
