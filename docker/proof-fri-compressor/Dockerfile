@@ -1,6 +1,6 @@
 # Will work locally only after prior universal setup key download
 
-FROM debian:bookworm-slim as builder
+FROM debian:12.6-slim as builder
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -21,7 +21,7 @@ COPY . .
 
 RUN cargo build --release --bin zksync_proof_fri_compressor
 
-FROM debian:bookworm-slim
+FROM debian:12.6-slim
 
 RUN apt-get update && apt-get install -y curl libpq5 ca-certificates && rm -rf /var/lib/apt/lists/*
 
