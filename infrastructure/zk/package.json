@@ -15,12 +15,12 @@
         "commander": "^6.0.0",
         "deep-extend": "^0.6.0",
         "dotenv": "^8.2.0",
-        "ethers": "~5.5.0",
+        "ethers": "~6.0.0",
         "handlebars": "^4.7.8",
         "node-fetch": "^2.6.1",
         "pg": "^8.11.3",
         "tabtab": "^3.0.2",
-        "zksync-web3": "^0.15.5"
+        "zksync-web3": "^0.17.1"
     },
     "devDependencies": {
         "@matterlabs/hardhat-zksync-solc": "^0.3.15",
